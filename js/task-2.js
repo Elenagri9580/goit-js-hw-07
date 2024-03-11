@@ -1,3 +1,5 @@
+'use strict';
+
 const images = [
   {
     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -12,18 +14,34 @@ const images = [
     alt: 'Group of Horses Running',
   },
   {
-    url:
-      'https://images.pexels.com/photos/66898/elephant-cub-tsavo-kenya-66898.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    url: 'https://images.pexels.com/photos/66898/elephant-cub-tsavo-kenya-66898.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     alt: 'Elephant Beside on Baby Elephant',
   },
   {
-    url:
-      'https://images.pexels.com/photos/37833/rainbow-lorikeet-parrots-australia-rainbow-37833.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    url: 'https://images.pexels.com/photos/37833/rainbow-lorikeet-parrots-australia-rainbow-37833.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     alt: 'Blue Geeen and Orange Parrot',
   },
   {
-    url:
-      'https://images.pexels.com/photos/247376/pexels-photo-247376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    url: 'https://images.pexels.com/photos/247376/pexels-photo-247376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     alt: 'Zebras on Zebra',
   },
 ];
+
+const gallery = document.querySelector('.gallery');
+
+const addImages = arrayImg => {
+  return arrayImg.map(img => {
+    const liImg = document.createElement('li');
+    liImg.classList.add('galleryItem');
+    const imeg = document.createElement('img');
+    imeg.classList.add('galleryItemImg');
+    imeg.src = img.url;
+    imeg.alt = img.alt;
+    liImg.append(imeg);
+
+    return liImg;
+  });
+};
+
+gallery.append(...addImages(images));
+console.log(addImages(images));
