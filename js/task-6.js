@@ -34,9 +34,8 @@ const handleClickCreate = () => {
       return divBox.append(...arrBoxes);
     }    
   }
+  createBoxes(value); 
   input.value = '';
-  createBoxes(value);
-  
 };
 btnCreate.addEventListener('click', handleClickCreate);
 
