@@ -11,11 +11,11 @@ function handleSubmit(event) {
     email: elements.email.value.trim(),
     password: elements.password.value.trim(),
   };
-
   if (info.email == '' || info.password == '') {
     alert('All form fields must be filled in');
   }
-
-  console.log(info);
+  if (info.email !== '' && info.password !== '') {
+    console.log(info);
+  }
   event.target.reset();
 }

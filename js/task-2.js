@@ -44,4 +44,3 @@ const addImages = arrayImg => {
 };
 
 gallery.append(...addImages(images));
-console.log(addImages(images));

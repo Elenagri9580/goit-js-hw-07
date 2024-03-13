@@ -212,17 +212,24 @@ button:hover {
   background-color: #6c8cff;
 }
 
+#controls button[data-destroy] {
+  background-color: #ff4e4e;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#controls button[data-destroy]:hover {
+  background-color: #ff7070;
+}
 
 #boxes {
   display: flex;
+  flex-wrap: wrap;
   column-gap: 16px;
+  row-gap: 16px;
+  justify-content: center;
   border-radius: 8px;
   padding: 32px;
   width: 100%;
   height: 100%;
   background: #f6f6fe;
-}
-
-.destroy {
-  background: #ff4e4e;
 }

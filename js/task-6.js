@@ -7,43 +7,45 @@ function getRandomHexColor() {
 }
 
 const input = document.querySelector('input');
-let amount = 0;
+let value = 0;
 function handleInput(event) {
-  amount = event.target.value;
+  value = event.target.value;
 }
 input.addEventListener('input', handleInput);
 
 const btnCreate = document.querySelector('button[data-create]');
 const divBox = document.querySelector('#boxes');
-const handleClickCreate = event => {
+const handleClickCreate = () => {
   function createBoxes(amount) {
-    if (1 <= amount <= 100) {
-      divBox.innerHTML = '';
+    divBox.innerHTML = '';    
+    if (Number(input.min) <= amount && amount <= Number(input.max)) {
+      let width = 30;
+      let height = 30;
+      let arrBoxes = [];
       for (let i = 1; i <= amount; i++) {
         const divNewBox = document.createElement('div');
-        divNewBox.style.width = '30px'; 
-        divNewBox.style.height = '30px';
+        divNewBox.style.width = `${width}px`;
+        divNewBox.style.height = `${height}px`;
         divNewBox.style.backgroundColor = getRandomHexColor();
-        divBox.append(divNewBox);
-        console.log(divNewBox); // не розумію, як збільшувати на 10px width і height з кожною ітерацією
+        arrBoxes.push(divNewBox);
+        width += 10;
+        height += 10;
       }
-    }
+      return divBox.append(...arrBoxes);
+    }    
   }
-  event = createBoxes(amount);
-  input.value = ''; // це очищає, але якщо повторно нажати btnCreate - все одно генеруються divNewBox, 
-  //не знаю як зробити правильно
+  input.value = '';
+  createBoxes(value);
+  
 };
-
 btnCreate.addEventListener('click', handleClickCreate);
 
 const btnDestroy = document.querySelector('button[data-destroy]');
-btnDestroy.classList.add('destroy'); // додаю клас на кнопку, щоб зробити css стилі, але стилі не додаються 
 
-const handleClickDestroy = event => {
+const handleClickDestroy = () => {
   function destroyBoxes() {
     divBox.innerHTML = '';
   }
-  event = destroyBoxes();
+  destroyBoxes();
 };
-
 btnDestroy.addEventListener('click', handleClickDestroy);
