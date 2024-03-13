@@ -36,6 +36,7 @@ const handleClickCreate = () => {
   }
   createBoxes(value); 
   input.value = '';
+  value = 0;
 };
 btnCreate.addEventListener('click', handleClickCreate);
 
