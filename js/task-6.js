@@ -17,7 +17,7 @@ const btnCreate = document.querySelector('button[data-create]');
 const divBox = document.querySelector('#boxes');
 const handleClickCreate = () => {
   function createBoxes(amount) {
-    divBox.innerHTML = '';    
+    divBox.innerHTML = '';
     if (Number(input.min) <= amount && amount <= Number(input.max)) {
       let width = 30;
       let height = 30;
@@ -32,9 +32,9 @@ const handleClickCreate = () => {
         height += 10;
       }
       return divBox.append(...arrBoxes);
-    }    
+    }
   }
-  createBoxes(value); 
+  createBoxes(value);
   input.value = '';
   value = 0;
 };
